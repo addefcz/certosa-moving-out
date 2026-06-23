@@ -1307,13 +1307,13 @@ function applySort(list){
     const priceDisplay = isFree ? 'Free' : (esc(item.currency||'€') + item.price);
     checkoutSheet.innerHTML = `
       <div class="sheet-head">
-        <h2>Claim the item: <span style="font-weight:400;">${esc(item.name)}</span></h2>
+        <h2>Claim the item:</h2>
         <button class="close-x" id="closeCheckoutX">✕</button>
       </div>
 
       <div class="summary-line total">
         <span>${esc(item.name)} ${item.brand ? '· '+esc(item.brand) : ''}</span>
-        <span style="${isFree ? 'color:#25D366;' : 'var(--pink-deep)'}">${priceDisplay}</span>
+        <span style="color:${isFree ? '#25D366' : 'var(--pink-deep)'};">${priceDisplay}</span>
       </div>
 
       <div class="pickup-info-box">
@@ -1324,11 +1324,11 @@ function applySort(list){
       <form id="checkoutForm">
         <div class="field">
           <label>Your name</label>
-          <input type="text" id="buyerName" required placeholder="e.g. Marco Rossi">
+          <input type="text" id="buyerName" required placeholder="e.g. Valentino Rossi">
         </div>
         <div class="field">
           <label>WhatsApp number</label>
-          <input type="tel" id="buyerWA" required placeholder="e.g. +39 333 1234567">
+          <input type="tel" id="buyerWA" required placeholder="e.g. +39 464 6464646">
         </div>
 
 
