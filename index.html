@@ -253,7 +253,7 @@
     color: var(--ink-soft);
     text-transform: uppercase;
     letter-spacing: 0.07em;
-    margin: -4px 0 0;
+    margin: -8px 0 0;
   }
   .price-tag-row { display: flex; align-items: center; gap: 10px; margin: 2px 0; }
   .price-tag {
@@ -284,6 +284,7 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin: -2px 0 0;
+    text-align: right;
   }
   .category-label.cat-electronics { color: var(--cat-electronics); }
   .category-label.cat-clothes { color: var(--cat-clothes); }
@@ -325,7 +326,7 @@
     cursor: pointer;
     transition: background .15s ease;
   }
-  .claim-btn:hover { background: var(--clay-deep); }
+  .claim-btn:hover { background: var(--teal-deep); }
   .claim-btn:disabled {
     background: var(--teal-deep);
     color: var(--ink-soft);
@@ -608,7 +609,7 @@
     font-size: 14px; padding: 10px 0;
     border-top: 1px dashed var(--line);
   }
-  .summary-line.total { font-weight: 700; font-size: 16px; color: var(--pink-deep); }
+  .summary-line.total { font-weight: 700; font-size: 16px; }
 
   .pickup-info-box {
     display: flex;
@@ -874,7 +875,7 @@
     electronics: { label: 'Electronics', cls: 'cat-electronics' },
     clothes: { label: 'Clothes', cls: 'cat-clothes' },
     food: { label: 'Food', cls: 'cat-food' },
-    other: { label: 'Other', cls: 'cat-other' }
+    other: { label: 'Others', cls: 'cat-other' }
   };
 
   // ---------- Backend config ----------
@@ -1306,13 +1307,13 @@ function applySort(list){
     const priceDisplay = isFree ? 'Free' : (esc(item.currency||'€') + item.price);
     checkoutSheet.innerHTML = `
       <div class="sheet-head">
-        <h2>Claim "${esc(item.name)}"</h2>
+        <h2>Claim the item: <span style="font-weight:400;">${esc(item.name)}</span></h2>
         <button class="close-x" id="closeCheckoutX">✕</button>
       </div>
 
       <div class="summary-line total">
         <span>${esc(item.name)} ${item.brand ? '· '+esc(item.brand) : ''}</span>
-        <span style="${isFree ? 'color:#25D366;' : ''}">${priceDisplay}</span>
+        <span style="${isFree ? 'color:#25D366;' : 'var(--pink-deep)'}">${priceDisplay}</span>
       </div>
 
       <div class="pickup-info-box">
